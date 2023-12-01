@@ -11,8 +11,9 @@ export default function Header() {
 }
 
 const Container = styled.section`
+  background-image: url("https://i.ytimg.com/vi/iUQrzoo_XdI/maxresdefault.jpg");
   width: 100%;
-  height: 300px;
+  height: 380px;
   background-color: lightgray;
   display: flex;
   flex-direction: column;
