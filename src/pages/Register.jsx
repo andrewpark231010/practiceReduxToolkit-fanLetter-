@@ -16,29 +16,37 @@ const Register = () => {
     e.preventDefault();
     // 회원가입 요청 보내기
     try {
-      const token = null;
-      const headers = {};
-      if (token) {
-        headers["Authorization"] = `Bearer ${token}`;
-      }
+      // 위조한 것을 주려고 했다... 근데 걸렸다.....
+      // const token = null;
+      // const headers = {};
+      // if (token) {
+      //   headers["Authorization"] = `Bearer ${token}`;
+      // }
 
-      await axios.post(
-        "https://moneyfulpublicpolicy.co.kr/register",
-        {
-          id,
-          name,
-          password,
-          confirmPassword,
-        },
-        { headers }
-      );
-      const userData = { id, name, password, confirmPassword };
-      localStorage.setItem("userData", JSON.stringify(userData));
+      //입장권을 원화로 구매해야 하는데, 달러를 줘 버렸다......
+      // await axios.post(
+      //   "https://moneyfulpublicpolicy.co.kr/register",
+      //   {
+      //     id,
+      //     name,
+      //     password,
+      //     confirmPassword,
+      //   },
+      //   { headers }
+      // );
+      await axios.post("https://moneyfulpublicpolicy.co.kr/register", {
+        id,
+        nickname: name,
+        password,
+      });
+      // const userData = { id, name, password, confirmPassword };
+      // localStorage.setItem("userData", JSON.stringify(userData));
 
       // 회원가입 성공 시 로그인 모드로 전환
       handleToggleLogin();
     } catch (error) {
       // 회원가입 실패 시 처리
+      console.log(error);
       window.alert("회원가입에 실패했습니다. 자세한 내용은 콘솔을 확인하세요.");
       console.error("회원가입 실패:", error.message);
     }
